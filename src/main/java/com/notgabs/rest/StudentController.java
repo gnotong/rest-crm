@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.notgabs.entity.Student;
+import com.notgabs.exception.StudentNotFoundException;
 
 @RestController
 public class StudentController {
@@ -31,12 +32,8 @@ public class StudentController {
 
 	@GetMapping("/students/{id}")
 	public Student one(@PathVariable("id") int id) {
-		if ((id-1) < 0) {
-			return null;
-		}
-		
-		if (id-1 >= students.size()) {
-			return null;
+		if ((id-1) < 0 || id-1 >= students.size()) {
+			throw new StudentNotFoundException("Student id not found - " + id);
 		}
 		
 		return students.get(id-1);
