@@ -1,0 +1,4 @@
+com\notgabs\App.class
+com\notgabs\rest\AppRestController.class
+com\notgabs\config\SpringMvcDispatcherServletInitializer.class
+com\notgabs\config\AppConfig.class
