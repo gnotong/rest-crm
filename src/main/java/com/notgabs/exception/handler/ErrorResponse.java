@@ -1,4 +1,4 @@
-package com.notgabs.exception;
+package com.notgabs.exception.handler;
 
 public class ErrorResponse {
 	private int status;

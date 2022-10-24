@@ -1,4 +1,4 @@
-package com.notgabs.exception;
+package com.notgabs.exception.handler;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class StudentExceptionHandler {
+public class CustomExceptionHandler {
 
 	@ExceptionHandler
-	public ResponseEntity<ErrorResponse> handleNotFoundException(StudentNotFoundException e) {
+	public ResponseEntity<ErrorResponse> handleNotFoundException(RuntimeException e) {
 		ErrorResponse error = new ErrorResponse(HttpStatus.NOT_FOUND.value(), e.getMessage(),
 				System.currentTimeMillis());
 		
